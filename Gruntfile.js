@@ -23,13 +23,13 @@ module.exports = function (grunt) {
         ext: '.js'
       }
     },
-    browserify:     {
-      options:      {
-        transform:  [ require('grunt-react').browserify ]
+    browserify: {
+      options: {
+        transform: [ require('grunt-react').browserify ]
       },
-      app:          {
-        src:        './public/**/*.js',
-        dest:       './public/main.js'
+      app: {
+        src: './public/**/*.js',
+        dest: './public/main.js'
       }
     },
     clean: {
