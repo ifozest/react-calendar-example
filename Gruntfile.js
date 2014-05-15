@@ -19,21 +19,29 @@ module.exports = function (grunt) {
         expand: true,
         cwd: './src',
         src: ['**/*.jsx'],
-        dest: './public',
+        dest: './src_compiled',
         ext: '.js'
       }
     },
     browserify: {
-      options: {
-        transform: [ require('grunt-react').browserify ]
-      },
       app: {
-        src: './public/**/*.js',
+        src: './src/**/*.jsx',
         dest: './public/main.js'
+      },
+      options: {
+        transform: ['reactify']
+      }
+    },
+    copy: {
+      main: {
+        expand: true,
+        flatten: true,
+        src: './src/*.html',
+        dest: './public/'
       }
     },
     clean: {
-      public: ['./public/main.js']
+      public: ['./public']
     }
 
   });
@@ -41,10 +49,12 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-react');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
+
   grunt.registerTask('run', ['connect', 'watch' ]);
-  grunt.registerTask('deploy', ['clean', 'react', 'browserify' ]);
+  grunt.registerTask('deploy', ['copy', 'browserify']);
 };
 
 

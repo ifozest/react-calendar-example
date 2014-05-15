@@ -9,10 +9,12 @@
   },
   "devDependencies": {
     "grunt": "0.4.x",
+    "reactify": "0.13.x",
     "grunt-contrib-watch": "0.6.x",
     "grunt-contrib-connect": "0.7.x",
     "grunt-react": "0.8.x",
     "grunt-browserify": "2.0.x",
-    "grunt-contrib-clean": "0.5.x"
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-copy": "0.5.x"
   }
 }
